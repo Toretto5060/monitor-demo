@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>监控系统</title>
+</head>
+<link rel="stylesheet" href="css/swiper-3.4.2.min.css">
+<link rel="stylesheet" href="css/index.style.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<!--<link rel="stylesheet" href="css/bootstrap.min.css">-->
+<script src="js/lib/jquery.min.js"></script>
+<!--<script src="js/lib/bootstrap.min.js"></script>-->
+<script src="js/lib/digitalScroll%20.js"></script>
+<script src="js/lib/echarts.js"></script>
+<!--<script src="js/lib/echartsmap.js"></script>-->
+<script src="js/lib/china.js"></script>
+<script src="js/lib/highcharts.js"></script>
+<script src="js/app/index.moudle.js"></script>
+<script src="js/lib/swiper-3.4.2.min.js"></script>
+
+<body onload="showTime()">
+<p id="btn" class="fa fa-arrows-alt"></p>
+
+<div class="print" id="print">
+    <div class="swiper-container" id="content">
+        <a href="javascript:;" class="logo">
+            <img src="img/logo-%23fff.png" alt="图片找不到了呢" title="上海联栈信息科技有限公司">
+        </a>
+        <div class="time">
+            <p id="nowTime" style="margin-top: 10px"></p>
+        </div>
+        <div class="swiper-wrapper" style="z-index: -99999">
+            <div class="swiper-slide fight">
+                <span class="ifram">
+                    <p>提示：信用卡交易将在2017年11月11日凌晨达到峰值，敬请相关人员做好应急准备！！</p>
+                </span>
+                <div class="header">
+                    <h1>数据中心作战室</h1>
+                </div>
+                <div class="trading">
+                    <span class="tit">今日交易笔数：</span>
+                    <div class="amount">
+                        <ul>
+                            <li>
+                                <div class="am_num">
+                                    <div id="total">
+                                        <span class="t_num t_num1"></span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="compare">
+                        <span class="yestoday">昨日交易笔数： 702481</span>
+                        <span class="ratio">同比增长: 48%</span>
+                    </div>
+                </div>
+                <!--地图占比-->
+                <div id="main1" class="map" style="width: 1800px;height:980px;margin: auto">
+
+                </div>
+
+                <div class="trade">
+                    <p>实时交易监控</p>
+                    <table>
+                        <th style="font-size: 19px">渠道</th>
+                        <th style="font-size: 19px">交易笔数</th>
+                        <th style="font-size: 19px">平均响应时间</th>
+
+                        <tr>
+                            <td>
+                                <div>网银</div>
+                            </td>
+                            <td>
+                                <div>220303</div>
+                            </td>
+                            <td>
+                                <div>0.0286s</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div>柜面</div>
+                            </td>
+                            <td>
+                                <div>192503</div>
+                            </td>
+                            <td>
+                                <div>0.0156s</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div>手机银行</div>
+                            </td>
+                            <td>
+                                <div>260569</div>
+                            </td>
+                            <td>
+                                <div>0.0155s</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div>信用卡</div>
+                            </td>
+                            <td>
+                                <div>30009</div>
+                            </td>
+                            <td>
+                                <div>0.153s</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div>ATM</div>
+                            </td>
+                            <td>
+                                <div>330969</div>
+                            </td>
+                            <td>
+                                <div>0.132s</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div>企业网银</div>
+                            </td>
+                            <td>
+                                <div>20383</div>
+                            </td>
+                            <td>
+                                <div>0.164s</div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <!--流量检测-->
+                <div class="flow">
+                    <p>流量预测</p>
+                    <div id="main" class="volume"></div>
+                </div>
+
+                <!--渠道交易安排-->
+                <div class="deal">
+                    <p>渠道交易占比</p>
+                    <div id="main2" style="width: 400px;height: 300px"></div>
+                </div>
+                <!--TOPS交易量-->
+                <div class="visit">
+                    <p>TOP交易量</p>
+                    <div id="main3" class="column"></div>
+                </div>
+
+            </div>
+            <!--节点监控-->
+            <div class="swiper-slide fight">
+                <div class="header">
+                    <h1>数据中心节点监控</h1>
+                </div>
+                <span class="ifram ifram2">
+                    <p>告警：手机银行交易失败，客户卡号*******4096，操作：转账，请及时处理！！！</p>
+                </span>
+
+                <div class="panel">
+                    <img src="img/20171012200501.png" alt="">
+                </div>
+<!--24小时交易-->
+                <div class="business">
+                <div id="main10" class="volume"></div>
+                </div>
+
+            </div>
+            <!--性能容量监测-->
+            <div class="swiper-slide fight">
+                <div class="header">
+                    <h1>数据中心性能容量监测</h1>
+                </div>
+                <!--CPU运行状态-->
+                <div class="cpu">
+                    <p style="margin-top: -50px">CPU运行状态</p>
+                    <div id="main6"></div>
+                </div>
+                <!--机房-->
+                <div class="generator">
+                    <p class="ti">机房平面图</p>
+                    <img src="img/20171012222817.png" alt="">
+                    <p class="tte"><span class="regular" style="margin-left: 1px"></span>&nbsp&nbsp待机 <span class="hitch"></span>&nbsp&nbsp故障</p>
+                </div>
+
+                <div class="system">
+                    <p>系统占比</p>
+                    <div id="main7"></div>
+                </div>
+
+                <div class="report">
+                    <div class="head">
+                        <p>节点故障告警</p>
+                        <ul>
+                            <li class="bord">节点IP</li>
+                            <li>10.1.250.106</li>
+                            <li>10.0.29.88</li>
+                            <li>10.1.18.107</li>
+                            <li>10.3.179.85</li>
+                        </ul>
+
+                        <ul style="width: 190px">
+                            <li class="bord">故障信息</li>
+                            <li>CPU使用达到80%</li>
+                            <li>目录/data使用率为78%</li>
+                            <li>内存使用率为100%</li>
+                            <li>C区02机柜物理机磁盘损坏</li>
+                        </ul>
+
+                        <ul style="width: 110px">
+                            <li class="bord">联系人</li>
+                            <li>马泽安</li>
+                            <li>张弛</li>
+                            <li>杨洋</li>
+                            <li>龚静怡</li>
+                        </ul>
+
+                        <ul>
+                            <li class="bord">电话</li>
+                            <li>15069426689</li>
+                            <li>18837695423</li>
+                            <li>17784013695</li>
+                            <li>13595086954</li>
+                        </ul>
+                   </div>
+            </div>
+                <!--内存使用率-->
+
+                <div class="internal">
+                    <p>内存使用率</p>
+                    <div id="main8" class="column"></div>
+                </div>
+
+                <!--磁盘使用占比-->
+                <div class="disc">
+                    <p>磁盘使用占比</p>
+                    <div id="main9" class="column"></div>
+                </div>
+        </div>
+    </div>
+    </div>
+</div>
+
+
+</body>
+<script>
+
+</script>
+</html>
